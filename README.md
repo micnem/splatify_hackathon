@@ -1,0 +1,1 @@
+# splatify_hackathon
