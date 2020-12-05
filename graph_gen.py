@@ -2,7 +2,9 @@ import psycopg2
 import matplotlib.pyplot as plt
 
 
-def get_data(artist_id):
+
+
+def get_data(artist_id, artist_name):
 
     HOSTNAME = 'localhost'
     USERNAME = 'postgres'
@@ -19,8 +21,8 @@ def get_data(artist_id):
     connection.close()
     x_axis_labels = ['danceability', 'energy', 'acousticness', 'instrumentalness', 'liveness', 'valence']
     data = [float(str(d)) for d in data[0]]
-    plt.figure('a string')
+    plt.figure(f'{artist_name}')
     plt.bar(x_axis_labels, data)
-    plt.title("Hello")
+    plt.title(f"A graphical representation of {artist_name.title()}'s music")
     plt.show()
     return data
