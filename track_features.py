@@ -12,13 +12,13 @@ def find_features(artist_name):
 
 
 
-    results = sp.search(q=artist_name, limit=10)
+    results = sp.search(q=artist_name, limit=50)
 
-    tids = []
+    track_ids = []
     for i, t in enumerate(results['tracks']['items']):
         # print(' ', i, t['name'])
-        tids.append(t['uri'])
+        track_ids.append(t['uri'])
 
-    features = sp.audio_features(tids)
+    features = sp.audio_features(track_ids)
     return features
  
